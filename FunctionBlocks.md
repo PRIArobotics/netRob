@@ -31,9 +31,9 @@ Warte für `1` `ms/s/min`
 
 # Vektor/Pose Operationen
 
-`V[1][2][3]` *// Konstruktor x,y,z*
+`V[1][2][3]` *// Konstruktor x,y,z,0,0,0*
 
-`V[1][2][3][4]` *// Konstruktor x,y,z,c*
+`V[1][2][3][4]` *// Konstruktor x,y,z,0,0,c*
 
 `V[1][2][3][4][5][6]` *// Konstruktor x,y,z,a,b,c*
 
