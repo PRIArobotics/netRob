@@ -1,5 +1,7 @@
 # Bewegungen
 
+Führe zusammenhängend auf `Robot1` aus **
+
 Bewege nach `V[1][2][3]` *// absolut*
 
 Bewege um `V[1][2][3]` *// relativ*
@@ -39,7 +41,7 @@ x:`1`, y:`2`, z:`3`, a:`4`, b:`5`, c:`6` *// Konstruktor x,y,z,a,b,c*
 
 Position von `Objekt1`
 
-Kombiniere `P[1][2][3]` und `P[4][5][6]` // Interne 4x4 Matrix Multiplication
+Kombiniere `P[1][2][3]` und `P[4][5][6]` *// Interne 4x4 Matrix Multiplication*
 
 Entfernung zwischen `Objekt1` und `Roboter1`
 
