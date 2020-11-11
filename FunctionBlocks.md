@@ -2,19 +2,19 @@
 
 Führe zusammenhängend auf `Robot1` aus
 
-Bewege nach `V[1][2][3]` *// absolut*
+Bewege nach `Pose` *// absolut*
 
-Bewege um `V[1][2][3]` *// relativ*
+Bewege um `Pose` *// relativ*
 
-Bewege `vorwärts/rückwärs/links/rechts/oben/unten` für `1` `mm`
+Bewege linear nach `Pose` *// absolut*
+
+Bewege linear um `Pose` *// relativ*
+
+Bewege `vorwärts/rückwärs/links/rechts/oben/unten` für `1` `mm` *// relativ*
 
 Drehe `im/gegen den Uhrzeigersinn` um `180`° *// Z-Achse*
 
-Drehe um Achse `V[1][2][3]` um `90`°
-
-Bewege linear nach `V[1][2][3]` *// absolut*
-
-Bewege linear um `V[1][2][3]` *// relativ*
+Drehe um Achse `Vector` um `90`°
 
 # Bewegungseinstellungen
 
@@ -30,7 +30,6 @@ Wechsle auf Werkzeug `Sauggreifer/Parallelgreifer`
 
 Warte für `1` `ms`
 
-
 # Pose Operationen
 
 x:`1`, y:`2`, z:`3` *// Konstruktor x,y,z,0,0,0*
@@ -39,26 +38,32 @@ x:`1`, y:`2`, z:`3`, c:`3` *// Konstruktor x,y,z,0,0,c*
 
 x:`1`, y:`2`, z:`3`, a:`4`, b:`5`, c:`6` *// Konstruktor x,y,z,a,b,c*
 
-Position von `Objekt1`
+position: `Vector` rotation: `Vector`
 
-Kombiniere `P[1][2][3]` und `P[4][5][6]` *// Interne 4x4 Matrix Multiplication*
+Pose von `Objekt1/Roboter1`
 
-Entfernung zwischen `Objekt1` und `Roboter1`
+Kombiniere `Pose` und `Pose` *// Interne 4x4 Matrix Multiplication*
 
-Drehe `V[1][2][3]` um Achse `V[1][2][3]` um `90`°
+Entfernung zwischen `Pose` und `Pose`
 
-`x/y/z/a/b/c` von `V[1][2][3]` *// Liefere Koordinate*
+`x/y/z/a/b/c` von `Pose` *// Liefere Koordinate*
+
+Rotation von `Pose`
+
+Position von `Pose`
+
+Rotiere `Pose` um Achse `Vector` um `90`°
 
 # Vector Operationen
 
-Addiere `V[1][2][3]` und `V[4][5][6]`
+Addiere `Vector` und `Vector`
 
-Subtrahiere `V[1][2][3]` und `V[4][5][6]`
+Subtrahiere `Vector` und `Vector`
 
-Multipliziere `V[1][2][3]` und `V[4][5][6]`
+Multipliziere `Vector` und `Vector`
 
-Multipliziere elementweise `V[1][2][3]` und `V[4][5][6]`
+Multipliziere elementweise `Vector` und `Vector`
 
-Multipliziere `V[1][2][3]` und `4`
+Multipliziere `Vector` und `4`
 
-Normalisiere `V[1][2][3]`
+Normalisiere `Vector`
