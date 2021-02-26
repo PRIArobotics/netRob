@@ -30,9 +30,9 @@ Wechsle auf Werkzeug `Sauggreifer/Parallelgreifer`
 
 Warte für `1` `ms`
 
-# Vector Operationen
+# Vector Datentyp
 
-x:`1`, y:`2`, z:`3` *// Konstruktor x,y,z*
+X:`1`, Y:`2`, Z:`3` *// Konstruktor*
 
 Position von `Objekt1/Roboter1`
 
@@ -50,9 +50,9 @@ Multipliziere `Vector` und `4`
 
 Normalisiere `Vector`
 
-`x/y/z` von `Vector` *// Liefere Koordinate*
+`x/y/z` von `Vector` *// Liefere Koordinate (Getter)*
 
-# Rotation Operationen
+# Rotation Datentyp
 
 A:`4`°, B:`5`°, C:`6`° *// Konstruktor Euler angles in Grad: Fixe Winkel X-Y-Z (= Z-Y'-X'' Euler Winkel; =Yaw Pitch Roll)*
 
@@ -64,7 +64,7 @@ Rotiere `Rotation` um `Rotation`
 
 Invertiere `Rotation`
 
-`a/b/c` von `Rotation` *// Liefere Komponente*
+`A/B/C` von `Rotation` *// Liefere Komponente (Getter)*
 
 # Pose Operationen
 
