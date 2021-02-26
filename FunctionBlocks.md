@@ -16,7 +16,7 @@ Drehe `im/gegen den Uhrzeigersinn` um `180`° *// Z-Achse*
 
 Drehe um Achse `Vector` um `90`°
 
-# Bewegungseinstellungen
+# Tooling
 
 Setze Geschwindigkeit auf `1` `mm/s`
 
