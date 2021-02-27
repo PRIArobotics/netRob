@@ -28,7 +28,7 @@ Schalte Werkzeug `ein/aus`
 
 Schalte Werkzeug auf Wert `0.5`
 
-Wechsle auf Werkzeug `Sauggreifer/Parallelgreifer`
+Wechsle auf Werkzeug `1`
 
 Warte für `1` `ms`
 
