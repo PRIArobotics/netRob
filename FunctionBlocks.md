@@ -74,6 +74,8 @@ Kombiniere `Vector` `Rotation` und `Vector` `Rotation` *// Interne 4x4 Matrix Mu
 
 # Future
 
+Bewege `90`° entlang eines Kreises um Mittelpunkt `Vector`
+
 Sensorwert für IO `1`
 
 Warte auf IO `1`
