@@ -72,7 +72,7 @@ Rotiere `Vector` um `Rotation`
 
 Kombiniere `Vector` `Rotation` und `Vector` `Rotation` *// Interne 4x4 Matrix Multiplication*
 
-# Future
+# Zukünftige Funktionen für Version 2
 
 Bewege `90`° entlang eines Kreises um Mittelpunkt `Vector`
 
