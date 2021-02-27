@@ -1,3 +1,5 @@
+Jede Zeile entspricht einem grafischen Funktionsblock mit eventuellem Rückgabewert. Grau markierte `Felder` entsprechen Inputs für andere Funktionsblöcke um Blöcke zur schachteln.
+
 # Bewegungen
 
 Führe zusammenhängend auf `Robot1` aus
