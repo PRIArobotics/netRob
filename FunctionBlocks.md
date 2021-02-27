@@ -30,7 +30,7 @@ Schalte Werkzeug auf Wert `0.5`
 
 Wechsle auf Werkzeug `1`
 
-Warte für `1` `ms`
+Warte für `1`ms
 
 # Vector Datentyp
 
