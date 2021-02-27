@@ -2,7 +2,7 @@ Jede Zeile entspricht einem grafischen Funktionsblock mit eventuellem Rückgabew
 
 # Bewegungen
 
-Führe zusammenhängend auf `Robot1` aus
+Führe zusammenhängend auf `Robot1` aus // Ummantelneder Block um Roboter zu spezifizieren bzw. mehrere Roboter parallel zu programmieren
 
 Bewege nach `Vector` `Rotation` *// absolut*
 
