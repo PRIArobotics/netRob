@@ -34,7 +34,7 @@ Warte für `1`ms
 
 # Vector Datentyp
 
-X:`1`, Y:`2`, Z:`3` *// Konstruktor*
+X:`1`, Y:`2`, Z:`3` *// Konstruktor für Vector Datentyp*
 
 Position von `Objekt1/Roboter1`
 
@@ -56,7 +56,7 @@ Normalisiere `Vector`
 
 # Rotation Datentyp
 
-A:`4`°, B:`5`°, C:`6`° *// Konstruktor Euler angles in Grad: Fixe Winkel X-Y-Z (= Z-Y'-X'' Euler Winkel; =Yaw Pitch Roll)*
+A:`4`°, B:`5`°, C:`6`° *// Konstruktor Rotation Datentyp in Euler Winel. Euler Winkel Definition: Fixe Winkel Rotation um X-Y-Z (= Z-Y'-X'' Euler Winkel; =Yaw Pitch Roll)*
 
 Rotation von Achse `Vector` um `90`° *// Konstruktor*
 
