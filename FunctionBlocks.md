@@ -71,3 +71,11 @@ Invertiere `Rotation`
 Rotiere `Vector` um `Rotation`
 
 Kombiniere `Vector` `Rotation` und `Vector` `Rotation` *// Interne 4x4 Matrix Multiplication*
+
+# Future
+
+Sensorwert für IO `1`
+
+Warte auf Sesnor `1`
+
+Setze TCP auf `Vector` `Rotation`
