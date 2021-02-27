@@ -36,7 +36,7 @@ Warte für `1`ms
 
 X:`1`, Y:`2`, Z:`3` *// Konstruktor für Vector Datentyp*
 
-Position von `Objekt1/Roboter1`
+Position von `Objekt1/Roboter1` *// Liefert Position von anderem 3D-Objekt in 3D-Simulation*
 
 Entfernung zwischen `Vector` und `Vector`
 
@@ -58,9 +58,9 @@ Normalisiere `Vector`
 
 A:`4`°, B:`5`°, C:`6`° *// Konstruktor Rotation Datentyp in Euler Winel. Euler Winkel Definition: Fixe Winkel Rotation um X-Y-Z (= Z-Y'-X'' Euler Winkel; =Yaw Pitch Roll)*
 
-Rotation von Achse `Vector` um `90`° *// Konstruktor*
+Rotation von Achse `Vector` um `90`° *// Konstruktor von Ritation Datentyp*
 
-Rotation von `Objekt1/Roboter1`
+Rotation von `Objekt1/Roboter1` *// Liefert Rotation von anderem 3D-Objekt in 3D-Simulation*
 
 Rotiere `Rotation` um `Rotation`
 
@@ -75,8 +75,6 @@ Rotiere `Vector` um `Rotation`
 Kombiniere `Vector` `Rotation` und `Vector` `Rotation` *// Interne 4x4 Matrix Multiplication*
 
 # Zukünftige Funktionen für Version 2
-
-Bewege `90`° entlang eines Kreises um Mittelpunkt `Vector`
 
 Sensorwert für IO `1`
 
