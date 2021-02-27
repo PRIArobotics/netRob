@@ -76,6 +76,6 @@ Kombiniere `Vector` `Rotation` und `Vector` `Rotation` *// Interne 4x4 Matrix Mu
 
 Sensorwert für IO `1`
 
-Warte auf Sesnor `1`
+Warte auf IO `1`
 
 Setze TCP auf `Vector` `Rotation`
