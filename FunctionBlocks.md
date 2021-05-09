@@ -36,7 +36,7 @@ Warte für `1`ms
 
 X:`1`, Y:`2`, Z:`3` *// Konstruktor für Vector Datentyp*
 
-Position von `Objekt1/Roboter1` *// Liefert Position von anderem 3D-Objekt in 3D-Simulation*
+Position von `Objekt1/Roboter1/TCP1` *// Liefert Position von anderem 3D-Objekt in 3D-Simulation*
 
 Entfernung zwischen `Vector` und `Vector`
 
@@ -81,3 +81,11 @@ Sensorwert für IO `1`
 Warte auf IO `1`
 
 Setze TCP auf `Vector` `Rotation`
+
+set base
+
+# Änderungen in Zukunft
+
+Speed in Prozent überall
+
+Klammer für Überschleifen (neben der Klammer für Roboter)
