@@ -1,0 +1,37 @@
+@import '../../variables.scss';
+
+.container {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.root {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 100%;
+}
+
+.previewContainer {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  & .previewViewport {
+    display: flex;
+    flex-flow: column nowrap;
+
+    padding: 0 20px 20px;
+    min-height: 100%;
+    width: fit-content;
+
+    & .preview {
+      flex: 1 auto;
+    }
+
+    & .previewToolbar {
+      margin-left: auto;
+      flex: 0 0 auto;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+modules:
+  misc:
+    init:
+      args:
+      - name: print
+        type: "(text: string, stream: string) => void | Promise<void>"
+      - name: getInput
+        type: () => Promise<string>
+      - name: onExit
+        type: (string | void) => void | Promise<void>
+      - name: pluginManager
+        type: PluginManager
+      - name: executor
+        type: Executor
+    functions:
+      print:
+        handlerName: handlePrint
+        args:
+        - name: text
+          type: any
+      getInput:
+        handlerName: handleGetInput
+        hasReply: true
+        args: []
+      exit:
+        args:
+        - name: error
+          type: string | void
+      pluginReady:
+        args: []
+    events:
+      testEvent:
+  hedgehog:
+    includeLookup: true
+    init:
+      args:
+      - name: getSimulation
+        type: () => Promise<Simulation>
+    functions:
+      commands:
+        hasReply: true
+        args:
+        - name: robot
+          type: string
+        - name: cmds
+          type: Command[]
+      moveMotor:
+        hasReply: true
+        args:
+        - name: robot
+          type: string
+        - name: port
+          type: number
+        - name: power
+          type: number
+      setServo:
+        hasReply: true
+        args:
+        - name: robot
+          type: string
+        - name: port
+          type: number
+        - name: position
+          type: number
+      getAnalog:
+        hasReply: true
+        args:
+        - name: robot
+          type: string
+        - name: port
+          type: number
+      getDigital:
+        hasReply: true
+        args:
+          - name: robot
+            type: string
+          - name: port
+            type: number
+      sleep:
+        hasReply: true
+        args:
+        - name: millis
+          type: number
+  blockly:
+    init:
+      args: []
+    functions:
+      addBlock:
+        hasReply: true
+        useTaskHandle: true
+        args:
+        - name: dynamicBlock
+          type: DynamicBlock
+  simulation:
+    init:
+      args:
+      - name: executor
+        type: Executor
+      - name: getSimulation
+        type: () => Promise<Simulation>
+    functions:
+      add:
+        args:
+        - name: objects
+          type: schema.Object[]
+      update:
+        args:
+        - name: objects
+          type: "{[label: string]: any}"
+      remove:
+        args:
+        - name: labels
+          type: string[]

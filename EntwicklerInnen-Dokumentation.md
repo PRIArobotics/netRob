@@ -2,7 +2,7 @@
 
 Im Projekt netRob entwickelten wir ein webbasiertes Framework, mit dem man 
 
-Industrieroboter einfach grafisch oder textuell programmieren und in 3D 
+Industrieroboter einfach grafisch programmieren und in 3D 
 
 simulieren kann. Ziel war, dass Programme einerseits auf echten 
 
@@ -98,9 +98,9 @@ Einen neuen Lehrer Account zu erstellen ist entweder über die GUI oder über ei
 
 ## Simulation 
 
-Die Simulation wurde in BabylonJs geschrieben.  Es wird sowohl bei  den Roboter als auch bei der Simulation   (https://github.com/PRIArobotics/webRob)  mit CRCL Befehlen (Welche mit dem Blocky Code generiert werden) gearbeitet. Die CRCL Befehle mit denen die Simulation arbeitet entsprechen also denen in der Realität. Definition der CRCL Befehle siehe https://github.com/PRIArobotics/CRCLJS/blob/main/Reference.md  Definition der FunktionBlöcke siehe https://github.com/PRIArobotics/netRob/blob/main/FunctionBlocks.md
+Die Simulation wurde in BabylonJs geschrieben.  Es wird sowohl bei  den Roboter als auch bei der Simulation   (https://github.com/PRIArobotics/webRob)  mit CRCL Befehlen (Welche mit dem Blockly Code generiert werden) gearbeitet. Die CRCL Befehle mit denen die Simulation arbeitet entsprechen also denen in der Realität. Definition der CRCL Befehle siehe https://github.com/PRIArobotics/CRCLJS/blob/main/Reference.md  Definition der FunktionBlöcke siehe https://github.com/PRIArobotics/netRob/blob/main/FunctionBlocks.md
 
-
+![image-20210803224615233](/home/sarah/Documents/Arbeit/netRob/Entwicklerdokumentation.assets/image-20210803224615233.png)
 
 
 

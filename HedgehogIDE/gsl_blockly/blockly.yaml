@@ -1,0 +1,638 @@
+modules:
+  
+  misc:
+    crcl_set_tcp:
+      colour: 280
+      args:
+      - type: input_value
+        name: Vector
+        check: Vector
+      - type: input_value
+        name: Rotation
+        check: Rotation
+      - type: field_checkbox
+        name: Linear
+      async: true
+      help: /help#blockly-misc
+
+    crcl_set_tool_value:
+      colour: 70
+      args:
+      - type: field_number
+        name: value
+      async: true
+      help: /help#blockly-misc
+    crcl_switch_tool:
+      colour: 70
+      args:
+      - type: field_number
+        name: toolNumber
+      async: true
+      help: /help#blockly-misc
+    crcl_wait:
+      colour: 70
+      args:
+      - type: field_number
+        name: time
+      async: true
+      help: /help#blockly-misc
+    crcl_tool_on_off:
+      colour: 280
+      args:
+      - type: field_dropdown
+        name: onof
+        options: [
+        [ "ON", "ON" ],
+        [ "OFF", "OFF" ]
+        ]
+      sync: true
+      help: /help#blockly-misc
+    
+    crcl_velocity:
+      colour: 70
+      args:
+      - type: field_number
+        name: velocity
+      async: true
+      help: /help#blockly-misc
+    
+    crcl_acceleration:
+      colour: 70
+      args:
+      - type: field_number
+        name: acceleration
+      async: true
+      help: /help#blockly-misc
+    print_block:
+      colour: 311
+      args:
+      - type: input_value
+        name: TEXT
+        check: [Number, Boolean, String,Vector]
+      help: /help#blockly-misc
+    get_input_block:
+      colour: 70
+      output: String
+      args: []
+      async: true
+      help: /help#blockly-misc
+    rotation_abc:
+      colour: 311
+      output: Rotation
+      args:
+      - type: field_number
+        name: A
+        value: 0
+        min: 0
+        max: 360
+      - type: field_number
+        name: B
+        value: 0
+        min: 0
+        max: 360
+      - type: field_number
+        name: C
+        value: 90
+        min: 0
+        max: 360
+      async: true
+      help: /help#blockly-misc
+    vector_xyz:
+      colour: 70
+      output: Vector
+      args:
+      - type: field_number
+        name: X
+        value: 0
+      - type: field_number
+        name: Y
+        value: 0
+      - type: field_number
+        name: Z
+        value: 0
+      async: true
+      help: /help#blockly-misc
+   
+  
+    vector_skalar:
+      colour: 280
+     
+      args:
+      - type: input_value
+        name: Vector
+        check: Vector
+      
+      - type: field_number
+        name: Skalar
+        
+      async: true
+      help: /help#blockly-misc
+
+    crcl_move_vector_rotation:
+      colour: 280
+      args:
+      - type: input_value
+        name: Vector
+        check: Vector
+      - type: input_value
+        name: Rotation
+        check: Rotation
+      - type: field_checkbox
+        name: Linear
+      async: true
+      help: /help#blockly-misc
+
+    crcl_move_direction:
+      colour: 280
+      args:
+      - type: field_number
+        name: Distance
+      - type: field_dropdown
+        name: Direction
+        options: [
+        [ "forward", "forward" ],
+        [ "backward", "backward" ],
+        [ "left", "left" ],
+        [ "right", "right" ],
+        [ "up", "up" ],
+        [ "down", "down" ]
+        ]
+      sync: true
+      help: /help#blockly-misc
+    
+    crcl_rotate_z:
+      colour: 280
+      args:
+     
+      - type: field_dropdown
+        name: RotationDirection
+        options: [
+        [ "clockwise", "clockwise" ],
+        [ "counterclockwise", "counterclockwise" ]
+        ]
+      - type: field_number
+        name: RotationZ
+        value: 90
+        min: 0
+        max: 360
+      sync: true
+      help: /help#blockly-misc
+      
+    vector_operation:
+      colour: 280
+      output: Vector
+      args:
+      - type: input_value
+        name: Vector1
+        check: Vector
+      - type: field_dropdown
+        name: mathOperation
+        options: [
+        [ "+", "Plus" ],
+        [ "-", "Minus" ],
+        [ "/", "Division" ],
+        [ "*", "Multiplicataion" ],
+        [ "distance between", "Distance Between" ],
+        [ "normalize", "Normalize" ],
+        [ "multiplicate componentvise", "multiplicate componentvise" ]
+        ]
+      - type: input_value
+        name: Vector2
+        check: Vector
+      sync: true
+      help: /help#blockly-misc
+    
+
+      
+
+  hedgehog:
+    hedgehog_move:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      - type: input_value
+        name: SPEED
+        check: Number
+      - type: input_value
+        name: TIME
+        check: Number
+      async: true
+      help: /help#blockly-motors
+    hedgehog_move_unlimited:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      - type: input_value
+        name: SPEED
+        check: Number
+      async: true
+      help: /help#blockly-motors
+    hedgehog_motor_off:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      async: true
+      help: /help#blockly-motors
+    hedgehog_brake:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      async: true
+      help: /help#blockly-motors
+    hedgehog_move2:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT1
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      - type: field_number
+        name: PORT2
+        value: 1
+        min: 0
+        max: 3
+        precision: 1
+      - type: input_value
+        name: SPEED1
+        check: Number
+      - type: input_value
+        name: SPEED2
+        check: Number
+      - type: input_value
+        name: TIME
+        check: Number
+      async: true
+      help: /help#blockly-drive
+    hedgehog_move2_unlimited:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT1
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      - type: field_number
+        name: PORT2
+        value: 1
+        min: 0
+        max: 3
+        precision: 1
+      - type: input_value
+        name: SPEED1
+        check: Number
+      - type: input_value
+        name: SPEED2
+        check: Number
+      async: true
+      help: /help#blockly-drive
+    # hedgehog_forward:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT1
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: field_number
+    #     name: PORT2
+    #     value: 1
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: SPEED
+    #     check: Number
+    #   - type: input_value
+    #     name: TIME
+    #     check: Number
+    # hedgehog_turn:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT1
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: field_number
+    #     name: PORT2
+    #     value: 1
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: DIR
+    #     check: Number
+    #   - type: input_value
+    #     name: TIME
+    #     check: Number
+    hedgehog_motor_off2:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT1
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      - type: field_number
+        name: PORT2
+        value: 1
+        min: 0
+        max: 3
+        precision: 1
+      async: true
+      help: /help#blockly-drive
+    hedgehog_brake2:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT1
+        value: 0
+        min: 0
+        max: 3
+        precision: 1
+      - type: field_number
+        name: PORT2
+        value: 1
+        min: 0
+        max: 3
+        precision: 1
+      async: true
+      help: /help#blockly-drive
+    hedgehog_servo:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 5
+        precision: 1
+      - type: input_value
+        name: ANGLE
+        check: Number
+      help: /help#blockly-servos
+    hedgehog_servo_off:
+      requiresScope: hedgehog
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 5
+        precision: 1
+      help: /help#blockly-servos
+    # hedgehog_speaker:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: input_value
+    #     name: FREQUENCY
+    #     check: Number
+    #     value: 440
+    #     min: 50
+    #     max: 15000
+    #     precision: 1
+    # hedgehog_speaker_off:
+    #   requiresScope: hedgehog
+    # hedgehog_pullup:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT
+    #     value: 0
+    #     min: 0
+    #     max: 15
+    #     precision: 1
+    #   - type: field_checkbox
+    #     name: STATE
+    #     checked: true
+    hedgehog_read_analog:
+      requiresScope: hedgehog
+      output: Number
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 15
+        precision: 1
+      async: true
+      help: /help#blockly-sensors
+    hedgehog_read_digital:
+      requiresScope: hedgehog
+      output: Boolean
+      args:
+      - type: field_number
+        name: PORT
+        value: 0
+        min: 0
+        max: 15
+        precision: 1
+      async: true
+      help: /help#blockly-sensors
+    # hedgehog_read_imu:
+    #   requiresScope: hedgehog
+    #   output: Number
+    #   args:
+    #   - type: field_dropdown
+    #     name: TYPE
+    #     options:
+    #     - ["Blockly.Msg.HEDGEHOG_READ_IMU_POSE", "POSE"]
+    #     - ["Blockly.Msg.HEDGEHOG_READ_IMU_ACCELERATION", "ACCELERATION"]
+    #     - ["Blockly.Msg.HEDGEHOG_READ_IMU_RATE", "RATE"]
+    #   - type: field_dropdown
+    #     name: AXIS
+    #     options:
+    #     - ["x", "X"]
+    #     - ["y", "Y"]
+    #     - ["z", "Z"]
+    #     - ["x, y, z", "XYZ"]
+    hedgehog_sleep:
+      requiresScope: hedgehog
+      args:
+      - type: input_value
+        name: TIME
+        check: Number
+      async: true
+      help: /help#blockly-misc
+    # hedgehog_create_scope:
+    #   scope: true
+    #   args:
+    #   - type: input_dummy
+    #   - type: input_statement
+    #     name: IN
+    # hedgehog_create2_scope:
+    #   scope: true
+    #   args:
+    #   - type: input_dummy
+    #   - type: input_statement
+    #     name: IN
+    # hedgehog_create_drive_direct:
+    #   requiresScope: create
+    #   args:
+    #   - type: input_value
+    #     name: TIME
+    #     check: Number
+    #   - type: input_value
+    #     name: LSPEED
+    #     check: Number
+    #   - type: input_value
+    #     name: RSPEED
+    #     check: Number
+    # hedgehog_lego_motor_config:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    # hedgehog_lego_sensor_config:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT
+    #     value: 8
+    #     min: 8
+    #     max: 11
+    #     precision: 1
+    # hedgehog_lego_move:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: SPEED
+    #     check: Number
+    #   - type: input_value
+    #     name: TIME
+    #     check: Number
+    # hedgehog_lego_move_unlimited:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: SPEED
+    #     check: Number
+    # hedgehog_lego_move2:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT1
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: field_number
+    #     name: PORT2
+    #     value: 1
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: SPEED1
+    #     check: Number
+    #   - type: input_value
+    #     name: SPEED2
+    #     check: Number
+    #   - type: input_value
+    #     name: TIME
+    #     check: Number
+    # hedgehog_lego_move2_unlimited:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT1
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: field_number
+    #     name: PORT2
+    #     value: 1
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: SPEED1
+    #     check: Number
+    #   - type: input_value
+    #     name: SPEED2
+    #     check: Number
+    # hedgehog_lego_forward:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT1
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: field_number
+    #     name: PORT2
+    #     value: 1
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: SPEED
+    #     check: Number
+    #   - type: input_value
+    #     name: TIME
+    #     check: Number
+    # hedgehog_lego_turn:
+    #   requiresScope: hedgehog
+    #   args:
+    #   - type: field_number
+    #     name: PORT1
+    #     value: 0
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: field_number
+    #     name: PORT2
+    #     value: 1
+    #     min: 0
+    #     max: 3
+    #     precision: 1
+    #   - type: input_value
+    #     name: DIR
+    #     check: Number
+    #   - type: input_value
+    #     name: TIME
+    #     check: Number

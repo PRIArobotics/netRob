@@ -1,0 +1,44 @@
+.root {
+  height: 100%;
+  font-family: monospace;
+  font-size: 19px;
+  min-width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.outputPane {
+  flex: 1 1 auto;
+  overflow-y: scroll;
+}
+
+.output {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  &.stdin {
+    color: green;
+  }
+
+  &.stdout {
+    color: black;
+  }
+
+  &.stderr {
+    color: red;
+  }
+}
+
+.inputForm {
+  flex: 0 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+
+  & input {
+    flex: 1 0 auto;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+  }
+}
