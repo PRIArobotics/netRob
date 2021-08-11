@@ -57,7 +57,7 @@ async function action() {
   const showWebRTC = async () => {
     const {
       default: WebRTC
-    } = await __webpack_require__.e(/* import() */ 4).then(__webpack_require__.bind(null, "./src/routes/webrtc/WebRTC.js"));
+    } = await __webpack_require__.e(/* import() */ 3).then(__webpack_require__.bind(null, "./src/routes/webrtc/WebRTC.js"));
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](WebRTC, {
       __self: this,
       __source: {

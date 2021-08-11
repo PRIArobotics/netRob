@@ -34,8 +34,8 @@ import {
 } from '../../misc/palette';
 import * as hooks from '../../misc/hooks';
 
-import { Robot } from '../../../../node_modules/webrob/module.mjs';
-import {eulerToQuaternion} from 'eulerutil';
+//import { Robot } from 'webrob/';
+//import {eulerToQuaternion} from 'eulerutil';
 import { type ExecutionAction } from '../Ide';
 import ToolBar from '../ToolBar';
 import ToolBarIconButton from '../ToolBar/ToolBarIconButton';

@@ -59,7 +59,7 @@ async function action(_context, params) {
   const showIde = async () => {
     const {
       default: Ide
-    } = await Promise.all(/* import() */[__webpack_require__.e(2), __webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, "./src/components/ide/Ide/Ide.js"));
+    } = await Promise.all(/* import() */[__webpack_require__.e(4), __webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, "./src/components/ide/Ide/Ide.js"));
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Ide, {
       projectName: projectName,
       __self: this,
@@ -116,7 +116,7 @@ async function action() {
   const showProjectList = async () => {
     const {
       default: ProjectList
-    } = await __webpack_require__.e(/* import() */ 3).then(__webpack_require__.bind(null, "./src/components/projects/ProjectList/ProjectList.js"));
+    } = await __webpack_require__.e(/* import() */ 2).then(__webpack_require__.bind(null, "./src/components/projects/ProjectList/ProjectList.js"));
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](ProjectList, {
       __self: this,
       __source: {
