@@ -169,7 +169,7 @@
     "webpack-dev-middleware": "^3.3.0",
     "webpack-hot-middleware": "^2.24.2",
     "webpack-node-externals": "^1.7.2",
-    "webrob": "file:../webRob",
+    "webrob": "git+https://github.com/PRIArobotics/webRob.git",
     "workbox-core": "^5.0.0",
     "workbox-precaching": "^5.0.0",
     "workbox-routing": "^5.0.0",
