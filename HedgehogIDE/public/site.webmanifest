@@ -51,6 +51,11 @@
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },{
+      "src": "/robot/festo_description/urdf/excm40.urdfjson"
+      
+      
     }
+
   ]
 }

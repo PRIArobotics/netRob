@@ -11,8 +11,8 @@ import {
     Color3,
     SceneLoader
 } from "@babylonjs/core";
-import  Robot from 'webrob/src/robot/Robot.js';
-import Joint from "webrob/src/robot/Joint.js";
+import  Robot from "webrob/src/robot/Robot";
+import Joint from "webrob/src/robot/Joint";
 import createAxes from "webrob/src/AxesHelper";
 
 
@@ -31,8 +31,9 @@ function splitFolderPath(path){
  * This is a babylon scene loader plugin.
  */
 export default class URDFJSONLoader {
-
+  
     constructor() {
+     
         this.assetsManager = null;
         this.importVisual = true;
         this.importCollision = false;
@@ -59,6 +60,7 @@ export default class URDFJSONLoader {
      * @returns true if successful or false otherwise
      */
     load(scene, data, rootUrl) {
+        console.log("ich bin hier");
         return this.importMesh(null, scene, data, rootUrl, null, null, null);
     }
 
@@ -287,7 +289,7 @@ export default class URDFJSONLoader {
 
 if (SceneLoader) {
     SceneLoader.RegisterPlugin(new URDFJSONLoader());
-    //console.log('Registered URDFJSONLoader')
+    console.log('Registered URDFJSONLoader')
 } else {
     console.log("Could not register URDFJSONLoader")
 }
