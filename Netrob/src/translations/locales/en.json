@@ -35,6 +35,7 @@
   "app.ide.delete_file_dialog.description": "Are you sure you want to delete {type, select, FILE {file} DIRECTORY {folder}} \"{name}\"?",
   "app.ide.delete_file_dialog.title": "Confirm deletion",
   "app.ide.file_menu.create_assets_directory": "Create Assets Folder",
+  "app.ide.file_menu.create_3DSimulation_config": "Create a config for a 3D Simulatin",
   "app.ide.file_menu.create_blockly_file": "New Blockly File",
   "app.ide.file_menu.create_folder": "New Folder",
   "app.ide.file_menu.create_js_file": "New Javascript File",

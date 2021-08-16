@@ -22,6 +22,7 @@ import {
   DeleteIcon,
   DownloadIcon,
   UploadIcon,
+  
 } from '../../misc/palette';
 
 import type { FileDesc, MetadataDesc, FileReference, DirReference, FileAction } from '.';
@@ -72,6 +73,13 @@ const messages = defineMessages({
     description: 'Menu item text for creating a Blockly toolbox configuration',
     defaultMessage: 'Create Toolbox Configuration',
   },
+  create3DSimulationConfig:{
+    id: 'app.ide.file_menu.create_3DSimulation_config',
+    description: 'Menu Item to create a 3D Simulation Config File',
+    defaultMessage: 'Create 3D Simulation Config',
+  },
+
+  
   rename: {
     id: 'app.ide.file_menu.rename',
     description: 'Menu item text for renaming a file',
@@ -243,6 +251,12 @@ class FileMenu extends React.Component<PropTypes, StateTypes> {
                           })
                         }
                         icon={MetadataAssetsIcon}
+                      />,
+                      <FileMenuItem
+                        key="create_3DSimulation_config"
+                        titleMsg={messages.create3DSimulationConfig}
+                        onClick={() => this.handleCreate({ type: 'FILE', extension: '.json' })}
+                        icon={MetadataLayoutIcon}
                       />,
                       <FileMenuItem
                         key="create_layout_config"

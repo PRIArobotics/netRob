@@ -40,7 +40,6 @@ export default function useProjectCache(
 
     async function loadAssets(root: FilerRecursiveStatInfo): Promise<Map<string, Uint8Array>> {
       const assetBuffers: Map<string, Uint8Array> = new Map();
-
       let assetsFile: FilerRecursiveStatInfo;
       try {
         assetsFile = getDescendant(root, '.metadata', 'assets');

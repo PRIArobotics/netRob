@@ -80,7 +80,8 @@ import ZoomFitIcon from 'mdi-material-ui/MagnifyScan';
 import  RotateOrbitIcon from 'mdi-material-ui/RotateOrbit'; 
 import  ResizeIcon  from 'mdi-material-ui/Resize'; 
 import  ArrowAllIcon from 'mdi-material-ui/ArrowAll';
-import RobotIndustrialIcon from 'mdi-material-ui/RobotIndustrial'
+import RobotIndustrialIcon from 'mdi-material-ui/RobotIndustrial';
+import CodeJsonIcon from 'mdi-material-ui/CodeJson';
 const TerminateAndResetIconBadge = withStyles({
   badge: {
     bottom: '25%',
