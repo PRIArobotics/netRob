@@ -18,9 +18,9 @@ yarn start
 
 ## 📖 Dokumentation
 
-AnwenderInnen-Dokumentation:
+AnwenderInnen-Dokumentation: https://github.com/PRIArobotics/netRob/blob/main/AnwenderInnen-Dokumentation.md
 
-EntwickleInnen-Dokumentation:
+EntwickleInnen-Dokumentation: https://github.com/PRIArobotics/netRob/blob/main/AnwenderInnen-Dokumentation.md
 
 Function Blocks: https://github.com/PRIArobotics/netRob/blob/main/FunctionBlocks.md
 
