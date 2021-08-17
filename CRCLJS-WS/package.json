@@ -1,0 +1,35 @@
+{
+  "name": "crcljs-ws",
+  "version": "1.0.0",
+  "description": "CRCLJS Websocket Communication Interface",
+  "main": "module.mjs",
+  "scripts": {
+    "test": "nyc mocha ./test",
+    "start": "node main.mjs",
+    "mock": "node main.mjs configMock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PRIArobotics/CRCLJS-WS.git"
+  },
+  "keywords": [
+    "crcl",
+    "robotics",
+    "node"
+  ],
+  "author": "Timon Hoebert",
+  "bugs": {
+    "url": "https://github.com/PRIArobotics/CRCLJS-WS/issues"
+  },
+  "homepage": "https://github.com/PRIArobotics/CRCLJS-WS#readme",
+  "dependencies": {
+    "component-emitter": "^1.3.0",
+    "socket.io-client": "^3.0.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0",
+    "sinon": "^9.0.1"
+  }
+}

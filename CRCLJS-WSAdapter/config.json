@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Festo",
+    "address": "192.168.42.110",
+    "port": 9810
+  },
+  {
+    "name": "Conveyor",
+    "address": "192.168.42.151",
+    "port": 9902
+  },
+  {
+    "name": "Kuka",
+    "address": "192.168.42.130",
+    "port": 54600
+  }
+]
