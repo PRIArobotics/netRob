@@ -1,8 +1,7 @@
 {
   "client": [
     "/assets/vendors.chunk.js",
-    "/assets/client.js",
-    "/assets/client.296e6f9c0ae56bc7f431.hot-update.js"
+    "/assets/client.js"
   ],
   "executor": [
     "/assets/vendors.chunk.js",
@@ -10,31 +9,26 @@
   ],
   "ide": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/ide.chunk.js"
   ],
   "contact": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/contact.chunk.js"
   ],
   "login": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/login.chunk.js"
   ],
   "register": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/register.chunk.js"
   ],
   "help": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/1.chunk.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/2.chunk.js",
@@ -42,43 +36,36 @@
   ],
   "contest": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/contest.chunk.js"
   ],
   "about": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/about.chunk.js"
   ],
   "privacy": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/privacy.chunk.js"
   ],
   "admin": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/admin.chunk.js"
   ],
   "indexedDB": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/indexedDB.chunk.js"
   ],
   "webrtc": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/webrtc.chunk.js"
   ],
   "not-found": [
     "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
-    "/assets/vendors~about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/about~admin~contact~contest~help~ide~indexedDB~login~not-found~privacy~register~webrtc.chunk.js",
     "/assets/not-found.chunk.js"
   ],
@@ -92,10 +79,10 @@
     "/assets/5.chunk.js",
     "/assets/4.chunk.js",
     "/assets/458.chunk.js",
-    "/assets/458.296e6f9c0ae56bc7f431.hot-update.js",
     "/assets/2.chunk.js",
     "/assets/3.chunk.js",
     "/assets/459.chunk.js",
+    "/assets/459.c532bc9727334075100e.hot-update.js",
     "/assets/5.chunk.js",
     "/assets/465.chunk.js",
     "/assets/464.chunk.js",

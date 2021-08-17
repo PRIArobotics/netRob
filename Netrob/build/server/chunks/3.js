@@ -49,7 +49,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
  // eslint-disable-next-line css-modules/no-unused-class
 
 
-const AcePeerEditor = react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](({
+const AcePeerEditor = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](({
   connectionConfig,
   ...props
 }, ref) => {

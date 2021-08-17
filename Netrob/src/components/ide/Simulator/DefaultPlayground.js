@@ -14,20 +14,10 @@ import {
 import _ from 'lodash';
 import createAxes from "webrob/src/AxesHelper";
 import React, { useEffect, useRef } from "react";
-console.log("HI")
-SceneLoader.OnPluginActivatedObservable.add(function (loader) {
-  if (loader.name === "urdfjson") {
-      loader.assetsManager = assetsManager;
-      console.log('Injected AssetManager')
-      
-  }
-});
-
-import "./URDFJSONLoader"
 import InputController from "webrob/src//InputController";
 import { eulerToQuaternion } from 'eulerutil';
 
-import { executeMultiRobotProgram, loadRobots } from "webrob/src/robot/MultiRobotHandler";
+//import { executeMultiRobotProgram, loadRobots } from "webrob/src/robot/MultiRobotHandler";
 import { TEST_CMDS } from "../../../../../../../../tmp/webRob/src/test/data.js";
 import { SceneLoader } from "@babylonjs/core/Loading/sceneLoader";
 
@@ -146,9 +136,9 @@ export default (props) => {
             const light = new HemisphericLight("light1", new Vector3(0, 0, 1), scene);
             light.intensity = 0.7;
 
-            const axes = createAxes(scene, 0.5, 1.0, true);
+            //const axes = createAxes(scene, 0.5, 1.0, true);
            
-
+            
             if (scene.isReady()) {
                 props.onSceneReady(scene);
             } else {

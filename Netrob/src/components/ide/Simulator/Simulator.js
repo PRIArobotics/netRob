@@ -2,7 +2,10 @@
 import { SceneLoader } from "@babylonjs/core/Loading/sceneLoader";
 
 import * as React from 'react';
-import createAxes from "webrob/src/AxesHelper.js";
+
+import { InputController, loadRobots} from "webrob"
+
+//import createAxes from "webrob/src/AxesHelper.js";
 import useStyles from 'isomorphic-style-loader/useStyles';
 import {
   Engine,
@@ -18,7 +21,18 @@ import {
   DualShockInput, Quaternion
   , AssetsManager, MeshBuilder, StandardMaterial, TransformNode, Matrix,
 } from "@babylonjs/core";
-
+console.log('Direkt vor OnPluginActivatedObservable')
+SceneLoader.OnPluginActivatedObservable.add(function (loader) {
+  if (loader.name === "urdfjson") {
+      loader.assetsManager = assetsManager;
+      console.log('Injected AssetManager')
+      
+  }
+});
+console.log('Direkt nach OnPluginActivatedObservable')
+import "./URDFJSONLoader"
+//import {URDFJSONLoader} from "webrob/src/URDFJSONLoader"
+console.log('nach import urdfjson')
 
 import {
   TerminateIcon,
@@ -36,7 +50,7 @@ import {
 } from '../../misc/palette';
 import * as hooks from '../../misc/hooks';
 import { eulerToQuaternion } from 'eulerutil/src/EulerUtil.js';
-import Robot from 'webrob/src/robot/Robot.js'
+//import Robot from 'webrob/src/robot/Robot.js'
 
 import { type ExecutionAction } from '../Ide';
 import ToolBar from '../ToolBar';
@@ -50,7 +64,7 @@ import { Simulation } from './simulation';
 import { generateConfigFromXml } from '../SimulatorEditor';
 // $FlowExpectError
 import defaultSimulationXml from './default_simulation.xml';
-import InputController from "webrob/src/InputController.js";
+//import InputController from "webrob/src/InputController.js";
 const defaultSimulationConfig = generateConfigFromXml(defaultSimulationXml);
 var inputController;
 
@@ -76,7 +90,7 @@ type Instance = {|
 
 import "@babylonjs/core/Debug/debugLayer"; // Augments the scene with the debug methods
 import "@babylonjs/inspector";
-import { TEST_CMDS } from "webrob/src/test/data"; // Injects a local ES6 version of the inspector to prevent automatically relying on the none compatible version
+//import { TEST_CMDS } from "webrob/src/test/data"; // Injects a local ES6 version of the inspector to prevent automatically relying on the none compatible version
 
 const inputsDef = {
   xAxis: [
@@ -135,7 +149,9 @@ var assetsManager;
  * Besides the simulation itself, the toolbar allows terminating programs and resetting the simulation.
  */
 import DefaultPlayground from "./DefaultPlayground";
-import { loadRobots } from "webrob/src/robot/MultiRobotHandler";
+//import { loadRobots } from "webrob/src/robot/MultiRobotHandler";
+//import URDFJSONLoader from "./URDFJSONLoader";
+// import {loadRobots} from "webrob";
 function inputsProcessed (forceupdate=false){
   const inputs = inputController.inputs
   const fastscale = 1 + (inputs.fast*2) // inputs.fast: [0, 1] -> [1, 2]
@@ -241,8 +257,10 @@ const Simulator = React.forwardRef < Props, Instance> (
 
       const axes = createAxes(scene, 0.5, 1.0, true);
       assetsManager = new AssetsManager(scene)
-     
-      //loadRobots(robotData,scene,assetsManager);
+      // SceneLoader.RegisterPlugin(new URDFJSONLoader())
+      console.log('nach Asset Manager ')
+      loadRobots(robotData,scene,assetsManager);
+      console.log('nach loadrobots')
       scene.render();
       // Our built-in 'ground' shape.
       MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);

@@ -103,7 +103,7 @@ class IndexedDB extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(...args) {
     super(...args);
 
-    _defineProperty(this, "inputRef", react__WEBPACK_IMPORTED_MODULE_0__["createRef"]());
+    _defineProperty(this, "inputRef", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createRef"]());
 
     _defineProperty(this, "handleInput", () => {
       if (this.inputRef.current === null) return;

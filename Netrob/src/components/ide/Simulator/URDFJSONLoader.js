@@ -31,7 +31,6 @@ function splitFolderPath(path){
  * This is a babylon scene loader plugin.
  */
 export default class URDFJSONLoader {
-  
     constructor() {
      
         this.assetsManager = null;
