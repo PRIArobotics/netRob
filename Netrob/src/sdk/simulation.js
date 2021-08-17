@@ -38,10 +38,11 @@ export default async function init({
       throw 'unreachable';
     }
   }
-
+ /** ToDo 
   function simulationAdded(simulation: Simulation) {
     simulation.addSensorHandler(handleCollision);
   }
+  */
   // </GSL customizable: simulation-init>
 
   const emit = baseEmit.bind(null, 'simulation');
@@ -70,7 +71,7 @@ export default async function init({
   return {
     // <GSL customizable: simulation-extra-return>
     // Space for extra exports
-    simulationAdded,
+    // simulationAdded,
     // </GSL customizable: simulation-extra-return>
     emit,
     handlers: {

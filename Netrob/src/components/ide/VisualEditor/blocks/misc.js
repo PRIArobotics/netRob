@@ -3,14 +3,17 @@
 
 import * as React from 'react';
 import Blockly from 'blockly/core';
-import {Command,
-  MoveTo,
-  SetEndEffector,
-  SetEndEffectorParameters,
-  Wait,
-  SetTransSpeed,
-  SetTransAccel} from 'crcljs/src/CommandFactory';
+
 import { type Block, registerBlocklyBlock } from '.';
+import MultiRobotInterface from 'crcljs/src/MultiRobotInterface';
+import CommandFactory from 'crcljs/src/CommandFactory';
+import CRCLCommand from 'crcljs/src/CRCLCommand';
+import RobotInterface from 'crcljs/src/RobotInterface';
+import TCPRobotConnection  from 'crcljs-node/src/TCPRobotConnection.mjs'
+
+
+//robots = new MultiRobotInterface();
+//robots.addRobot(new RobotInterface(new TCPRobotConnection('Festo', 9000, '127.0.0.1')))
 
 export const CRCL_SET_TCP: Block = {
   blockJson: {
@@ -47,7 +50,7 @@ export const CRCL_SET_TCP: Block = {
       const vector = Blockly.JavaScript.valueToCode(block, 'Vector', Blockly.JavaScript.ORDER_ATOMIC);
       const rotation = Blockly.JavaScript.valueToCode(block, 'Rotation', Blockly.JavaScript.ORDER_ATOMIC);
       // TODO generate code
-      const code = '';
+      
       return code;
       // </GSL customizable: crcl_set_tcp-body-JavaScript>
     },
@@ -96,7 +99,8 @@ export const CRCL_SET_TOOL_VALUE: Block = {
       const value = block.getFieldValue('value');
       // <default GSL customizable: crcl_set_tool_value-body-JavaScript>
       // TODO generate code
-      const code = '';
+     // robots.addToQueue(robots[0], new CRCLCommand('SetEndEffector',"Picking Target",{"Setting": $value }));
+     // console.log(new CRCLCommand('SetEndEffector',"Picking Target",{"Setting": $value }).toString())
       return code;
       // </GSL customizable: crcl_set_tool_value-body-JavaScript>
     },
@@ -144,6 +148,8 @@ export const CRCL_SWITCH_TOOL: Block = {
       // <default GSL customizable: crcl_switch_tool-body-JavaScript>
       // TODO generate code
       const code = '';
+    //  console.log( new CRCLCommand("SetEndEffectorParameters","Using Tool "+$toolNumber, {"ToolID": $toolNumber});
+      //robots.addToQueue(robots[0], new CRCLCommand("SetEndEffectorParameters","Using Tool "+$toolNumber, {"ToolID": $toolNumber}))
       return code;
       // </GSL customizable: crcl_switch_tool-body-JavaScript>
     },
@@ -191,6 +197,7 @@ export const CRCL_WAIT: Block = {
       // <default GSL customizable: crcl_wait-body-JavaScript>
       // TODO generate code
       const code = '';
+      robots.addToQueue(robots[0], new CRCLCommand('Wait','Wait '+$time,{"Time": $time}));
       return code;
       // </GSL customizable: crcl_wait-body-JavaScript>
     },
@@ -244,6 +251,12 @@ export const CRCL_TOOL_ON_OFF: Block = {
   generators: {
     JavaScript: block => {
       const onof = block.getFieldValue('onof');
+      if (onof = 'ON'){
+        robots.addToQueue(robots[0], new CRCLCommand('SetEndEffector',"Picking Target",{"Setting": 1.00 }));
+      }
+      else {
+        robots.addToQueue(robots[0], new CRCLCommand('SetEndEffector',"Picking Target",{"Setting": 0.00 }));
+      }
       // <default GSL customizable: crcl_tool_on_off-body-JavaScript>
       // TODO generate code
       const code = '';
@@ -302,6 +315,7 @@ export const CRCL_VELOCITY: Block = {
       // <default GSL customizable: crcl_velocity-body-Python>
       // TODO generate code
       const code = '';
+      robots.addToQueue(robots[0], CommandFactory.SetTransSpeed('Set slow speed', $velocity))
       return code;
       // </GSL customizable: crcl_velocity-body-Python>
     },
@@ -341,6 +355,7 @@ export const CRCL_ACCELERATION: Block = {
       // <default GSL customizable: crcl_acceleration-body-JavaScript>
       // TODO generate code
       const code = '';
+      robots.addToQueue(robots[0], CommandFactory.SetTransAccel('Set accelaration speed', acceleration))
       return code;
       // </GSL customizable: crcl_acceleration-body-JavaScript>
     },

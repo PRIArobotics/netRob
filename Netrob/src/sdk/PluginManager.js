@@ -106,7 +106,8 @@ class PluginManager {
   }
 
   simulationAdded(simulation: Simulation) {
-    this.sdk.simulation.simulationAdded(simulation);
+    //TODO
+    //this.sdk.simulation.simulationAdded(simulation);
   }
 
   // TODO this simply resolves one loading plugin, not the correct one

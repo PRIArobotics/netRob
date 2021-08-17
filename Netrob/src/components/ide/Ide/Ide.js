@@ -455,7 +455,7 @@ function Ide({ projectName }: Props) {
     const pluginManager = pluginManagerRef.current;
     // eslint-disable-next-line no-throw-literal
     if (pluginManager === null) throw 'ref is null';
-
+    console.log(code)
     const sdk = {
       misc: await initMiscSdk({
         print,
@@ -518,8 +518,8 @@ function Ide({ projectName }: Props) {
     // eslint-disable-next-line no-throw-literal
     if (pluginManager === null) throw 'ref is null';
 
-    simulator.simulation.reset();
-    pluginManager.getSdk().misc.emit(executor, 'simulationReset', null);
+    //</string>simulator.simulation.reset();
+    //</ConsoleType>pluginManager.getSdk().misc.emit(executor, 'simulationReset', null);
   }
 
   async function handleExecutionAction(action: ExecutionAction) {

@@ -14,6 +14,15 @@ import {
 import _ from 'lodash';
 import createAxes from "webrob/src/AxesHelper";
 import React, { useEffect, useRef } from "react";
+console.log("HI")
+SceneLoader.OnPluginActivatedObservable.add(function (loader) {
+  if (loader.name === "urdfjson") {
+      loader.assetsManager = assetsManager;
+      console.log('Injected AssetManager')
+      
+  }
+});
+
 import "./URDFJSONLoader"
 import InputController from "webrob/src//InputController";
 import { eulerToQuaternion } from 'eulerutil';
@@ -232,8 +241,8 @@ function inputsProcessed(forceupdate = false) {
     } else {
         shift = new Vector3(-inputs.xAxis, inputs.yAxis, inputs.zAxis).scale(scale * 0.3) // TODO rotate viewer pos
         if (shift.length() > 0 || forceupdate) {
-            tcp.position = tcp.position.add(shift)
-            allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
+            //tcp.position = tcp.position.add(shift)
+           // allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
             rendering = true
         }
     }

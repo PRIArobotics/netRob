@@ -69,7 +69,15 @@ modules:
       crcl_acceleration:
         msg: "Set Beschleunigung zu %1 mm/s²."
         tooltip: "Set acceleration of the robot"
+      crcl_set_ip:
+       msg: "Ändere Ip des Roboters auf %1 .%2 . %3"
+       tooltip: "Set Ip des Roboters"
+
     en:
+     crcl_set_ip:
+       msg: "Set IP of robot to  %1 .%2 . %3"
+       tooltip: "Set Ip of robot"
+
       cat_custom:
         msg: Custom
       cat_logic:

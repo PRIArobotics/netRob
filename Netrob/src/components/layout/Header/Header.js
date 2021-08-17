@@ -37,8 +37,8 @@ const messages = {
     },
     title: {
       id: 'app.header.title',
-      description: 'Main Hedgehog IDE title',
-      defaultMessage: 'Hedgehog IDE',
+      description: 'Main Netrob IDE title',
+      defaultMessage: 'Netrob IDE',
     },
     selectLanguageTooltip: {
       id: 'app.header.select_language_tooltip',

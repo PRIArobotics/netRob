@@ -73,13 +73,7 @@ function VisualEditor({
   // TODO this has a timing issue, as it depends on `VisualEditor.dynamicBlockLoaders`
   // being fully initialized before the VisualEditor component is created
   const workspaceOptions = React.useMemo(() => {
-    const dynamicBlocks = VisualEditor.dynamicBlockLoaders.length ? (
-      <category name="%{BKY_CAT_CUSTOM}" colour="120">
-        {VisualEditor.dynamicBlockLoaders.map((loader) =>
-          loader().map((block) => block.toolboxBlocks.default()),
-        )}
-      </category>
-    ) : null;
+   
     const toolbox = ReactDOM.renderToStaticMarkup(
       <xml>
       
@@ -87,16 +81,10 @@ function VisualEditor({
         <category name="%{BKY_HEDGEHOG_CAT_DRIVE}" colour="120">
          {miscBlocks.CRCL_MOVE_VECTOR_ROTATION.toolboxBlocks.default()}      
           {miscBlocks.CRCL_MOVE_DIRECTION.toolboxBlocks.default()}    
-          {miscBlocks.CRCL_ROTATE_Z.toolboxBlocks.default()}  
-          {miscBlocks.VECTOR_XYZ.toolboxBlocks.default()}
         
         
           {miscBlocks.ROTATION_ABC.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_MOVE2_UNLIMITED.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_MOVE2.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_MOTOR_OFF2.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_BRAKE2.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_SLEEP.toolboxBlocks.default()}
+         
         </category>
         <category name="Tooling" colour="120">
           {miscBlocks.CRCL_VELOCITY.toolboxBlocks.default()}
@@ -105,70 +93,13 @@ function VisualEditor({
           {miscBlocks.CRCL_SWITCH_TOOL.toolboxBlocks.default()}
           {miscBlocks.CRCL_SET_TOOL_VALUE.toolboxBlocks.default()}
         </category>
-        <category name="%{BKY_HEDGEHOG_CAT_MOTORS}" colour="120">
-          {hedgehogBlocks.HEDGEHOG_MOVE_UNLIMITED.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_MOVE.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_MOTOR_OFF.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_BRAKE.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_SLEEP.toolboxBlocks.default()}
-        </category>
-        <category name="%{BKY_HEDGEHOG_CAT_SERVOS}" colour="120">
-          {hedgehogBlocks.HEDGEHOG_SERVO.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_SERVO_OFF.toolboxBlocks.default()}
-        </category>
-        <category name="%{BKY_HEDGEHOG_CAT_SENSORS}" colour="120">
-          {hedgehogBlocks.HEDGEHOG_READ_DIGITAL.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_READ_ANALOG.toolboxBlocks.default()}
-          {hedgehogBlocks.HEDGEHOG_READ_ANALOG.toolboxBlocks.comparison()}
-        </category>
-        {dynamicBlocks}
+       
+       
         <sep />
-        <category name="%{BKY_CAT_LOGIC}" colour="%{BKY_LOGIC_HUE}">
-          <block type="controls_if" />
-          <block type="controls_if">
-            <mutation else="1" />
-          </block>
-          <block type="controls_if">
-            <mutation elseif="1" else="1" />
-          </block>
-          <block type="logic_compare" />
-          <block type="logic_operation" />
-          <block type="logic_negate" />
-          <block type="logic_boolean" />
-          <block type="logic_null" />
-          <block type="logic_ternary" />
-        </category>
-        <category name="%{BKY_CAT_LOOPS}" colour="%{BKY_LOOPS_HUE}">
-          <block type="controls_repeat_ext">
-            <value name="TIMES">
-              <block type="math_number">
-                <field name="NUM">10</field>
-              </block>
-            </value>
-          </block>
-          <block type="controls_whileUntil" />
-          <block type="controls_for">
-            <field name="VAR">i</field>
-            <value name="FROM">
-              <block type="math_number">
-                <field name="NUM">1</field>
-              </block>
-            </value>
-            <value name="TO">
-              <block type="math_number">
-                <field name="NUM">10</field>
-              </block>
-            </value>
-            <value name="BY">
-              <block type="math_number">
-                <field name="NUM">1</field>
-              </block>
-            </value>
-          </block>
-          <block type="controls_forEach" />
-          <block type="controls_flow_statements" />
-        </category>
         <category name="%{BKY_CAT_MATH}" colour="%{BKY_MATH_HUE}">
+        {miscBlocks.CRCL_ROTATE_Z.toolboxBlocks.default()}  
+          {miscBlocks.VECTOR_XYZ.toolboxBlocks.default()}
+          
             {miscBlocks.VECTOR_SKALAR.toolboxBlocks.default()}
           
           
@@ -242,6 +173,52 @@ function VisualEditor({
           <block type="text_join" inline="true" />
           {miscBlocks.GET_INPUT_BLOCK.toolboxBlocks.default()}
         </category>
+        <category name="%{BKY_CAT_LOGIC}" colour="%{BKY_LOGIC_HUE}">
+          <block type="controls_if" />
+          <block type="controls_if">
+            <mutation else="1" />
+          </block>
+          <block type="controls_if">
+            <mutation elseif="1" else="1" />
+          </block>
+          <block type="logic_compare" />
+          <block type="logic_operation" />
+          <block type="logic_negate" />
+          <block type="logic_boolean" />
+          <block type="logic_null" />
+          <block type="logic_ternary" />
+        </category>
+        <category name="%{BKY_CAT_LOOPS}" colour="%{BKY_LOOPS_HUE}">
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+          <block type="controls_whileUntil" />
+          <block type="controls_for">
+            <field name="VAR">i</field>
+            <value name="FROM">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+          <block type="controls_forEach" />
+          <block type="controls_flow_statements" />
+        </category>
+      
       </xml>,
     );
     return {

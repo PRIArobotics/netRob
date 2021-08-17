@@ -1,6 +1,6 @@
 // @flow
 import { SceneLoader } from "@babylonjs/core/Loading/sceneLoader";
-import './URDFJSONLoader'
+
 import * as React from 'react';
 import createAxes from "webrob/src/AxesHelper.js";
 import useStyles from 'isomorphic-style-loader/useStyles';
@@ -152,8 +152,9 @@ function inputsProcessed (forceupdate=false){
   } else {
       shift = new Vector3(-inputs.xAxis, inputs.yAxis, inputs.zAxis).scale(scale*0.3) // TODO rotate viewer pos
       if (shift.length() > 0 || forceupdate){
-          tcp.position = tcp.position.add(shift)
-          allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
+        //todo
+         // tcp.position = tcp.position.add(shift)
+          //allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
           rendering = true
       }
   }
@@ -211,7 +212,7 @@ const Simulator = React.forwardRef < Props, Instance> (
     const simulation = hooks.useValue(() => {
       const sim = new Simulation();
       //sim.jsonInit(defaultSimulationConfig);
-      //return sim;
+      return sim;
     });
     ;
 
@@ -240,8 +241,8 @@ const Simulator = React.forwardRef < Props, Instance> (
 
       const axes = createAxes(scene, 0.5, 1.0, true);
       assetsManager = new AssetsManager(scene)
-      
-     // loadRobots(robotData,scene,assetsManager);
+     
+      //loadRobots(robotData,scene,assetsManager);
       scene.render();
       // Our built-in 'ground' shape.
       MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
@@ -253,12 +254,7 @@ const Simulator = React.forwardRef < Props, Instance> (
     const onRender = (scene) => {
      
     };
-    SceneLoader.OnPluginActivatedObservable.add(function (loader) {
-      if (loader.name === "urdfjson") {
-          loader.assetsManager = assetsManager;
-          console.log('Injected AssetManager')
-      }
-  });
+  
   
     // mount simulator in the target and simulate continuously
     const [renderTarget, setRenderTarget] = React.useState < HTMLCanvasElement | null > (null);

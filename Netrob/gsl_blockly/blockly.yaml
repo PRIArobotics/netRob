@@ -1,6 +1,18 @@
 modules:
   
   misc:
+    crcl_set_ip:
+      colour: 70
+      args:
+      - type: field_number
+        name: IP1
+      - type: field_number
+        name: IP2
+      - type: field_number
+        name: IP3
+      async: true
+      help: /help#blockly-misc
+      
     crcl_set_tcp:
       colour: 280
       args:

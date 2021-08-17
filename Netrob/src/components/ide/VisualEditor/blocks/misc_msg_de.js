@@ -65,5 +65,10 @@ Msg['CRCL_WAIT_TOOLTIP'] = 'Wait for %1 ms.';
 Msg['CRCL_SET_TCP'] = 'Set Tool Center Point zu %1 %2';
 Msg['CRCL_SET_TCP_TOOLTIP'] = 'Set Tool Center Point';
 
+
 Msg['CRCL_ACCELERATION'] = 'Set Beschleunigung zu %1 mm/s².';
 Msg['CRCL_ACCELERATION_TOOLTIP'] = 'Set acceleration of the robot';
+
+
+Msg['CRCL_SET_IP'] = 'Set Robot Ip to   %1 . %2 . %3 ';
+Msg['CRCL_SET_IP_TOOLTIP'] = 'Set Ip of the Robot';
