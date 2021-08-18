@@ -103,6 +103,4 @@ dist
 # TernJS port file
 .tern-port
 .DS_Store
-CRCLJS-Node/.vscode
-CRCLJS-WS/.idea
-CRCLJS-WSAdapter/.idea
+package-lock.json

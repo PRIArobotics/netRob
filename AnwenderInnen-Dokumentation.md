@@ -1,30 +1,6 @@
 # AnwenderInnen-Dokumentation
 
-Im Projekt netRob entwickelten wir ein webbasiertes Framework, mit dem man 
-
-Industrieroboter einfach grafisch programmieren und in 3D 
-
-simulieren kann. Ziel war, dass Programme einerseits auf echten 
-
-Industrierobotern ausführbar sein sollten und andererseits auch in der 
-
-dazugehörigen Web-App einen virtuellen Roboter steuern und dessen virtuelles 
-
-Umfeld, beispielsweise greifbare Objekte, beeinflussen könnten. 
-
-Da Industrieroboter sehr kostspielig in der Anschaffung als auch proprietäre 
-
-Simulationssoftware für Industrieroboter soll netrob 
-
-SchülerInnen, die durch den Einsatz grafischer Programmiersprachen einen 
-
-anfängerfreundlichen Zugang zur Programmierung und Industrierobotik ermöglichen. Das 
-
-Framework kann aber auch von universitären Einrichtungen und privaten Personen für die 
-
-Einführung im Robotik benutzt werden.
-
-Da die  Programmierumgebung auf  der HedgehogIDE aufbaut ist die AnwenderInnen-Dokumentation der HedgehogIDE relevant.
+Im Projekt netRob wurde ein webbasiertes Framework entwickelt, mit dem man Industrieroboter einfach grafisch programmieren und in 3D simulieren kann. Ziel war, dass Programme einerseits auf echten Industrierobotern ausführbar sein sollten und andererseits auch in der dazugehörigen Web-App einen virtuellen Roboter steuern und dessen virtuelles Umfeld, beispielsweise greifbare Objekte, beeinflussen könnten. Da Industrieroboter sehr kostspielig in der Anschaffung sind, als auch proprietäre Simulationssoftware für Industrieroboter, soll netrob SchülerInnen, die durch den Einsatz grafischer Programmiersprachen einen anfängerfreundlichen Zugang zur Programmierung und Industrierobotik ermöglichen. Das Framework kann aber auch von universitären Einrichtungen und privaten Personen für die Einführung im Robotik benutzt werden. Da die  Programmierumgebung auf  der HedgehogIDE aufbaut ist die AnwenderInnen-Dokumentation der HedgehogIDE relevant.
 
 https://ide.pria.at/help 
 
@@ -32,7 +8,7 @@ In dieser wird erklärt wie man einfache Projekte und einfache Programme erstell
 
 ## Neue Blöcke
 
-Um Industrieroboter zu programmieren brauchte es neue Blocky Blöcke diese sind unter den Unterpunkten Fahren, Tooling und Mathe zu finden.  Definition aller Blöcke https://github.com/PRIArobotics/netRob/blob/main/FunctionBlocks.md
+Um Industrieroboter zu programmieren brauchte es neue Blocky Blöcke. Diese sind unter den Unterpunkten Fahren, Tooling und Mathe zu finden.  
 
 ![image-20210805093615441](AnwenderInnen-Dokumentation.assets/image-20210805093615441.png)
 
@@ -40,15 +16,13 @@ Um Industrieroboter zu programmieren brauchte es neue Blocky Blöcke diese sind 
 
 ## Simulationsumgebung
 
-Um die Industrieroboter zu Simulieren brauchte es neue Möglichkeiten bei der Simulationsumgebung. 
+Um die Industrieroboter zu Simulieren gibt es folgende Möglichkeiten innerhalb der Simulationsumgebung. 
 
 ![image-20210805085229061](AnwenderInnen-Dokumentation.assets/image-20210805085229061.png)
 
 
 
 **Größe von Objekten/Robotern verändern**
-
-Achtung sollte man eine  möglichst realitätstreue Simulation durchführen wollen ist dies natürlich nicht zu empfehlen.
 
 ![image-20210805093840984](AnwenderInnen-Dokumentation.assets/image-20210805093840984.png)
 
