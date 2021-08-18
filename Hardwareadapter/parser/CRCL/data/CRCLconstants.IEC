@@ -1,0 +1,20 @@
+TYPE CRCLconstants :
+	STRUCT
+		(*CommandType_MOVE_TO: BYTE := 0;
+		CommandType_SET_END_EFFECTOR: BYTE := 1;
+		CommandType_SET_END_EFFECTOR_PARAMETER: BYTE := 2;
+		CommandType_DWELL: BYTE := 3;
+		CommandType_SET_ROT_SPEED: BYTE := 4;
+		CommandType_SET_ROT_ACCEL: BYTE := 5;
+		CommandType_SET_TRANS_SPEED: BYTE := 6;
+		CommandType_SET_TOOL: BYTE := 7;
+		CommandType_SET_ORIGIN: BYTE := 8;*)
+		
+		State_PARSE_PARAMETER: BYTE;
+		State_VALIDATE_COMMAND: BYTE;
+		State_COMMAND_VALID: BYTE;
+		State_COMMAND_INVALID: BYTE;
+		State_EXECUTE_COMMAND: BYTE;
+		State_FINISHED_COMMAND: BYTE;
+	END_STRUCT
+END_TYPE

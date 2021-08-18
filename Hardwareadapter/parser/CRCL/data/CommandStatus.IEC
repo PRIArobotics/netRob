@@ -1,0 +1,8 @@
+TYPE CommandStatus :
+(* Respone to a command which reports the actual execution state of the task *)
+STRUCT
+	commandID: DINT;
+	statusID: DINT;
+	state: STRING(255);
+END_STRUCT
+END_TYPE

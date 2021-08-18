@@ -1,0 +1,16 @@
+{attribute 'qualified_only'}
+VAR_GLOBAL
+	x: LREAL;
+	y: LREAL;
+	z: LREAL;
+	u: LREAL;
+	movementDataAvailable: BOOL;
+	movementCompleted: BOOL;
+	dataInBuffer: BOOL;
+	setEndEffector: BOOL;
+	jsonData: OSCAT_NETWORK.NW_BUF_LONG;
+	useGripperOne: BOOL := TRUE;
+	enableVacuum: BOOL;
+	gripperOne: BOOL; (* IO Link Enabling Vacuum Valve One *)
+	gripperTwo: BOOL; (* IO Link Enabling Vacuum Valve Two *)
+END_VAR

@@ -1,0 +1,8 @@
+TYPE JsonValue :
+	STRUCT
+		valueType: BYTE (* JsonDataType *);
+		integerValue: LINT;
+		decimalValue: LREAL;
+		stringValue: StringTextSize;
+	END_STRUCT
+END_TYPE

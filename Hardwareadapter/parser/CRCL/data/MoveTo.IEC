@@ -1,0 +1,11 @@
+TYPE MoveTo :
+STRUCT
+	X: LREAL;
+	Y: LREAL;
+	Z: LREAL;
+	A: LREAL;
+	B: LREAL;
+	C: LREAL;
+	straight: BOOL;
+END_STRUCT
+END_TYPE

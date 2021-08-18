@@ -1,0 +1,3 @@
+VAR_GLOBAL
+	Json: JsonConstants;
+END_VAR

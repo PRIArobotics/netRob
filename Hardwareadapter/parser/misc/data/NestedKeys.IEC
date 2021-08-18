@@ -1,0 +1,3 @@
+TYPE NestedKeys :
+	ARRAY[1..10] OF JsonKey; (* 10 <=> Constants.MAX_NESTING_DEPTH *)
+END_TYPE

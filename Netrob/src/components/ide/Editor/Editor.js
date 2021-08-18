@@ -107,8 +107,17 @@ function Editor({ layoutNode, project, path, onExecutionAction, running }: Props
               if (content !== null)
                 onExecutionAction({
                   action: 'EXECUTE',
+                  /** 
+                   robots.groupQueue()
+                   robots.printQueue()
+
+
+
+                   robots.connectAll()
+                   robots.sendQueues()
+                   robots.disconnectAll()*/
                   code: content,
-                });
+                },);
             }}
             disableRipple
             disabled={running || content === null}

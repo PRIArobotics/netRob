@@ -1,0 +1,4 @@
+VAR_GLOBAL
+	Constants: GeneralConstants;
+	resetParser: BOOL := FALSE;
+END_VAR

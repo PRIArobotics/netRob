@@ -1,0 +1,3 @@
+TYPE StringTextSize :
+	STRING(1024); (* STRING(Constants_TEXT_VALUE_SIZE) *)
+END_TYPE

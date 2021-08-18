@@ -1,0 +1,6 @@
+TYPE JsonKey :
+	STRUCT
+		index: UINT; (* Index of array element, indices start at 1, value 0 means 'is not an array' *)
+		propertyName: StringKeySize;
+	END_STRUCT
+END_TYPE

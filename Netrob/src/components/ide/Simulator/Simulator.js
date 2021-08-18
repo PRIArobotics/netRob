@@ -3,7 +3,9 @@ import { SceneLoader } from "@babylonjs/core/Loading/sceneLoader";
 
 import * as React from 'react';
 
-import { InputController, loadRobots} from "webrob"
+import { InputController, loadRobots, createAxes, URDFJSONLoader } from "webrob"
+//import "webrob/src/URDFJSONLoader";
+//import {loadRobots} from ""
 
 //import createAxes from "webrob/src/AxesHelper.js";
 import useStyles from 'isomorphic-style-loader/useStyles';
@@ -19,18 +21,19 @@ import {
   DeviceType,
   XboxInput,
   DualShockInput, Quaternion
-  , AssetsManager, MeshBuilder, StandardMaterial, TransformNode, Matrix,
+  , AssetsManager, MeshBuilder, StandardMaterial, TransformNode, Matrix, Loaders
 } from "@babylonjs/core";
 console.log('Direkt vor OnPluginActivatedObservable')
+
 SceneLoader.OnPluginActivatedObservable.add(function (loader) {
   if (loader.name === "urdfjson") {
-      loader.assetsManager = assetsManager;
-      console.log('Injected AssetManager')
-      
+    loader.assetsManager = assetsManager;
+    console.log('Injected AssetManager')
+
   }
 });
 console.log('Direkt nach OnPluginActivatedObservable')
-import "./URDFJSONLoader"
+//import "./URDFJSONLoader"
 //import {URDFJSONLoader} from "webrob/src/URDFJSONLoader"
 console.log('nach import urdfjson')
 
@@ -149,73 +152,92 @@ var assetsManager;
  * Besides the simulation itself, the toolbar allows terminating programs and resetting the simulation.
  */
 import DefaultPlayground from "./DefaultPlayground";
-//import { loadRobots } from "webrob/src/robot/MultiRobotHandler";
-//import URDFJSONLoader from "./URDFJSONLoader";
-// import {loadRobots} from "webrob";
-function inputsProcessed (forceupdate=false){
+
+function inputsProcessed(forceupdate = false) {
   const inputs = inputController.inputs
-  const fastscale = 1 + (inputs.fast*2) // inputs.fast: [0, 1] -> [1, 2]
+  const fastscale = 1 + (inputs.fast * 2) // inputs.fast: [0, 1] -> [1, 2]
   const slowscale = (1 - (Math.min(inputs.slow, 0.97))) // inputs.slow: [0, 1] -> [0, 1]
 
   const scale = scene.getAnimationRatio() * 0.01 * fastscale * slowscale
   let shift = Vector3.Zero()
-  if (inputs.mode > 0.5){
-      shift = new Vector3(-inputs.yAxis, inputs.xAxis, inputs.zAxis).scale(scale)
-      const shiftQuaternion = Quaternion.FromEulerVector(shift)
-      tcp.rotationQuaternion = tcp.rotationQuaternion.multiply(shiftQuaternion)
-      allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
-      rendering = true
+  if (inputs.mode > 0.5) {
+    shift = new Vector3(-inputs.yAxis, inputs.xAxis, inputs.zAxis).scale(scale)
+    const shiftQuaternion = Quaternion.FromEulerVector(shift)
+    tcp.rotationQuaternion = tcp.rotationQuaternion.multiply(shiftQuaternion)
+    allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
+    rendering = true
   } else {
-      shift = new Vector3(-inputs.xAxis, inputs.yAxis, inputs.zAxis).scale(scale*0.3) // TODO rotate viewer pos
-      if (shift.length() > 0 || forceupdate){
-        //todo
-         // tcp.position = tcp.position.add(shift)
-          //allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
-          rendering = true
-      }
+    shift = new Vector3(-inputs.xAxis, inputs.yAxis, inputs.zAxis).scale(scale * 0.3) // TODO rotate viewer pos
+    if (shift.length() > 0 || forceupdate) {
+      //todo
+      // tcp.position = tcp.position.add(shift)
+      //allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
+      rendering = true
+    }
   }
-  try{
-      if (inputController.changedInputs.tool1 && inputs.tool1 >= 0.5){
+  try {
+    if (inputController.changedInputs.tool1 && inputs.tool1 >= 0.5) {
+      console.log('Gripping')
+      /*
+      if (coneMaterial.diffuseColor.equals(Color3.Gray())){
+          coneMaterial.diffuseColor = Color3.Black()
           console.log('Gripping')
-          /*
-          if (coneMaterial.diffuseColor.equals(Color3.Gray())){
-              coneMaterial.diffuseColor = Color3.Black()
-              console.log('Gripping')
-              //robotInterface.send(CommandFactory.SetEndEffector('Gripping', 1.0))
-          } else {
-              coneMaterial.diffuseColor = Color3.Gray()
-              console.log('Releasing')
-              //robotInterface.send(CommandFactory.SetEndEffector('Releasing', 0.0))
-          } */
-      }
-  } catch (e){
-      console.log(e.message)
+          //robotInterface.send(CommandFactory.SetEndEffector('Gripping', 1.0))
+      } else {
+          coneMaterial.diffuseColor = Color3.Gray()
+          console.log('Releasing')
+          //robotInterface.send(CommandFactory.SetEndEffector('Releasing', 0.0))
+      } */
+    }
+  } catch (e) {
+    console.log(e.message)
   }
 }
 const robotData = [
 
+  
+  {
+    path: "robot/kuka_kr6_support/urdf/kr6r700sixx.urdfjson",
+    pos: new Vector3(1, 0, 0),
+    rot: eulerToQuaternion(new Vector3(0, 0, 0)),
+    chains: [{
+      base: 'base_link',
+      flange: 'tool0',
+      ik: 'wasmik',
+      ikparam: { path: "robot/kuka_kr6_support/urdf/kr6r700sixx.js" },
+      tools: [{
+        position: new Vector3(0, 0, 0.05),
+        rotationQuaternion: eulerToQuaternion(new Vector3(0, Math.PI / 2, 0)),
+        type: 'vacuumGripper',
+        visual: {
+          parameter: { diameter: 0.01, height: 0.05 },
+          position: new Vector3(0, 0, 0.025),
+          rotationQuaternion: eulerToQuaternion(new Vector3(Math.PI / 2, 0, 0)),
+        }
+      }]
+    }]
 
-
+  },
 
   {
-      path: "robot/festo_description/urdf/excm40.urdfjson",
-      pos: new Vector3(0, 0, 0),
-      rot: eulerToQuaternion(new Vector3(0, 0, 0)),
-      chains: [{
-          base: 'base_link',
-          flange: 'axis3',
-          ik: 'cartesianik',
-          tools: [{
-              position: new Vector3(0, 0, -0.05),
-              rotationQuaternion: eulerToQuaternion(new Vector3(0, 0, 0)),
-              type: 'vacuumGripper',
-              visual: {
-                  parameter: { diameter: 0.01, height: 0.05 },
-                  position: new Vector3(0, 0, -0.025),
-                  rotationQuaternion: eulerToQuaternion(new Vector3(Math.PI / 2, 0, 0)),
-              }
-          }]
+    path: "robot/festo_description/urdf/excm40.urdfjson",
+    pos: new Vector3(0, 0, 0),
+    rot: eulerToQuaternion(new Vector3(0, 0, 0)),
+    chains: [{
+      base: 'base_link',
+      flange: 'axis3',
+      ik: 'cartesianik',
+      tools: [{
+        position: new Vector3(0, 0, -0.05),
+        rotationQuaternion: eulerToQuaternion(new Vector3(0, 0, 0)),
+        type: 'vacuumGripper',
+        visual: {
+          parameter: { diameter: 0.01, height: 0.05 },
+          position: new Vector3(0, 0, -0.025),
+          rotationQuaternion: eulerToQuaternion(new Vector3(Math.PI / 2, 0, 0)),
+        }
       }]
+    }]
 
   },
 
@@ -234,7 +256,7 @@ const Simulator = React.forwardRef < Props, Instance> (
 
     const onSceneReady = (scene) => {
       // This creates and positions a free camera (non-mesh)
-      
+
       var camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
       // This targets the camera to scene origin
@@ -257,10 +279,10 @@ const Simulator = React.forwardRef < Props, Instance> (
 
       const axes = createAxes(scene, 0.5, 1.0, true);
       assetsManager = new AssetsManager(scene)
-      // SceneLoader.RegisterPlugin(new URDFJSONLoader())
-      console.log('nach Asset Manager ')
-      loadRobots(robotData,scene,assetsManager);
-      console.log('nach loadrobots')
+      SceneLoader.RegisterPlugin(new URDFJSONLoader())
+
+      loadRobots(robotData, scene, assetsManager);
+
       scene.render();
       // Our built-in 'ground' shape.
       MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
@@ -270,14 +292,14 @@ const Simulator = React.forwardRef < Props, Instance> (
      * Will run on every frame render.  We are spinning the box on y-axis.
      */
     const onRender = (scene) => {
-     
+
     };
-  
-  
+
+
     // mount simulator in the target and simulate continuously
     const [renderTarget, setRenderTarget] = React.useState < HTMLCanvasElement | null > (null);
     React.useEffect(() => {
-      if (renderTarget === null) return undefined; 
+      if (renderTarget === null) return undefined;
 
       simulation.mount(renderTarget);
       simulation.startMatter();
@@ -288,11 +310,11 @@ const Simulator = React.forwardRef < Props, Instance> (
         simulation.unmount();
       };
     }, [renderTarget, simulation]);
- 
+
     // Need to use a dependency array here, because Ide requires a stable ref.
     // On each change to the Simulator ref, jsonInit is potentially called.
     React.useImperativeHandle(ref, () => ({ simulation }), [simulation]);
-    
+
     useStyles(s);
     return (
 

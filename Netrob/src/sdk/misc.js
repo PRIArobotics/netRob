@@ -70,6 +70,7 @@ export default async function init({
     emit,
     handlers: {
       'misc_print': ({ text }: { text: any }) => handlePrint(text),
+      
       'misc_getInput': async ({  }: {  }, taskHandle: TaskHandle) => {
         return taskHandle.withReply(null, handleGetInput.bind(null, ));
       },

@@ -1,0 +1,3 @@
+TYPE StringKeySize :
+	STRING(255); (* STRING(Constants_KEY_SIZE) *)
+END_TYPE

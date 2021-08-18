@@ -1,0 +1,8 @@
+TYPE GeneralConstants :
+	STRUCT
+		(* Constants *)
+		KEY_SIZE: UINT;
+		TEXT_VALUE_SIZE: UINT;
+		MAX_NESTING_DEPTH: UINT;
+	END_STRUCT
+END_TYPE

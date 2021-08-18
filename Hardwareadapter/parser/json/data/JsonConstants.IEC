@@ -1,0 +1,37 @@
+TYPE JsonConstants :
+	STRUCT
+		(* JsonDataType *)
+		Type_DOCUMENT_BEGIN: BYTE;
+		Type_TYPE_STRING: BYTE;
+		Type_TYPE_INTEGER: BYTE;
+		Type_TYPE_DECIMAL: BYTE;
+		Type_TYPE_ARRAY: BYTE;
+		Type_TYPE_OBJECT: BYTE;
+		Type_VALUE_TRUE: BYTE;
+		Type_VALUE_FALSE: BYTE;
+		Type_VALUE_NULL: BYTE;
+		
+		(* JsonToken *)
+		Token_BEFORE_DOCUMENT: BYTE; 
+		Token_AFTER_DOCUMENT: BYTE; 
+		Token_OPEN_OBJECT: BYTE; (* { *)
+		Token_CLOSE_OBJECT: BYTE; (* } *)
+		Token_OPEN_ARRAY: BYTE; (* [ *)
+		Token_CLOSE_ARRAY: BYTE; (* ] *)
+		Token_KEY: BYTE; (* " *)
+		Token_ASSIGN: BYTE; (* : *)
+		Token_VALUE: BYTE; (* literal *)
+		Token_SEPARATE: BYTE; (* , *)
+		
+		(* JsonValueParsingState *)
+		Value_UNDEFINED: BYTE;
+		Value_VALUE_STRING: BYTE;
+		Value_ESCAPE: BYTE;
+		Value_HEX_ESCAPE: BYTE;
+		Value_BEFORE_DECIMAL: BYTE;
+		Value_AFTER_DECIMAL: BYTE;
+		Value_VALUE_NULL: BYTE;
+		Value_VALUE_TRUE: BYTE;
+		Value_VALUE_FALSE: BYTE;
+	END_STRUCT
+END_TYPE

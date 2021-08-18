@@ -1,0 +1,7 @@
+TYPE JsonProperty :
+STRUCT
+	nestingDepth: UINT; (* index starts at 1 since nestingDepth = 0 means outside document *)
+	keys: NestedKeys;
+	value: JsonValue;
+END_STRUCT
+END_TYPE

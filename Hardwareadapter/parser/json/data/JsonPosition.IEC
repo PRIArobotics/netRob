@@ -1,0 +1,6 @@
+TYPE JsonPosition :
+	STRUCT
+		actualToken: BYTE; (* (* JsonToken *) :=  BYTE#0 (* Json.Token_BEFORE_DOCUMENT *) -- Logical position in the syntax (token stream) *)
+		tokenFinished: BOOL := TRUE; (* If the actual Token is already finished *)
+	END_STRUCT
+END_TYPE

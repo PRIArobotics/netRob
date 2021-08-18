@@ -29,5 +29,5 @@ module.exports = {
     '@babel/plugin-syntax-dynamic-import',
     ['react-intl', { messagesDir: './src/translations/extractedMessages' }],
   ],
-  ignore: ['node_modules', 'build'],
+  ignore: ['/node_modules\/(?!webrob).+/', 'build'],
 };
