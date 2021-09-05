@@ -3,7 +3,8 @@ import { SceneLoader } from "@babylonjs/core/Loading/sceneLoader";
 
 import * as React from 'react';
 
-import { InputController, loadRobots, createAxes, URDFJSONLoader } from "webrob"
+import { InputController, loadRobots, createAxes, URDFJSONLoader, executeMultiRobotProgram } from "webrob"
+import { TEST_CMDS } from "webrob/src/test/data"
 //import "webrob/src/URDFJSONLoader";
 //import {loadRobots} from ""
 
@@ -194,8 +195,24 @@ function inputsProcessed(forceupdate = false) {
   }
 }
 const robotData = [
-
-  
+  /** 
+   {
+     path: "robot/ur_description/urdf/ur5_joint_limited_robot.urdfjson",
+     pos: new Vector3(0,0,0),
+     rot: eulerToQuaternion(new Vector3(0, 0,0)),
+     chains: [{
+         base: 'base_link',
+         flange: 'tool0',
+         ik: 'wasmik',
+         ikparam: {path: "robot/ur_description/urdf/ur5_joint_limited_robot.js"},
+         tools: [{
+             position: new Vector3(0,0,0.1),
+             rotationQuaternion: eulerToQuaternion(new Vector3(0, Math.PI/2,0)),
+             type: 'vacuumGripper'
+         }]
+     }]
+ 
+ },
   {
     path: "robot/kuka_kr6_support/urdf/kr6r700sixx.urdfjson",
     pos: new Vector3(1, 0, 0),
@@ -218,7 +235,7 @@ const robotData = [
     }]
 
   },
-
+*/
   {
     path: "robot/festo_description/urdf/excm40.urdfjson",
     pos: new Vector3(0, 0, 0),
@@ -281,11 +298,29 @@ const Simulator = React.forwardRef < Props, Instance> (
       assetsManager = new AssetsManager(scene)
       SceneLoader.RegisterPlugin(new URDFJSONLoader())
 
-      loadRobots(robotData, scene, assetsManager);
 
       scene.render();
-      // Our built-in 'ground' shape.
-      MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+
+      let allrobots = null
+      loadRobots(robotData, scene, assetsManager).then(async (robots) => {
+        allrobots = robots
+
+
+
+        const r = allrobots[0]
+        //inputsProcessed(true)
+        scene.render()
+
+
+        //await r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.4, 0.3)))
+
+
+       // r.speed = 0.2
+       // r.setTCPTo(new Vector3(0.3, 0.3, 0.3), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)))
+
+       // await executeMultiRobotProgram(allrobots, TEST_CMDS)
+
+      })
     };
 
     /**
@@ -338,7 +373,7 @@ const Simulator = React.forwardRef < Props, Instance> (
             <ToolBarItem key="reset">
               <ToolBarIconButton
                 onClick={() => {
-                  onExecutionAction({ action: 'RESET' });
+                  //  onExecutionAction({ action: 'RESET' });
                 }}
                 icon={ResetIcon}
                 disableRipple

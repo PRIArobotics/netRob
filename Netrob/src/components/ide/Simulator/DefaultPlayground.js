@@ -137,7 +137,7 @@ export default (props) => {
             light.intensity = 0.7;
 
             //const axes = createAxes(scene, 0.5, 1.0, true);
-           
+            window.addEventListener("resize", () => engine.resize());
             
             if (scene.isReady()) {
                 props.onSceneReady(scene);
@@ -193,7 +193,7 @@ export default (props) => {
                 }
                 scene.render();
             });
-
+           
             const resize = () => {
                 scene.getEngine().resize();
             };
