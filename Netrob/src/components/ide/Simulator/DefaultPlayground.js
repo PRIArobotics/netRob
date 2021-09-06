@@ -171,20 +171,20 @@ export default (props) => {
                             let allrobots = null;
                             console.log("Started Renderloop");
                             
-                           
+                           /** 
 
-                               // await r.Wait(2)
-                                //r.speed = 0.2
+                                 r.Wait(2)
+                                r.speed = 0.2
                                 //r.setTCPTo( new Vector3(0.3, 0.3, 0.3), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)))
-                                /*await r.MoveTo({Straight: false, Pose: {'A': 0, 'B': Math.PI / 2, 'C':-Math.PI + 0.1, 'X':300, 'Y':400, 'Z': 300}})
-                                await r.lin(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.5, 0.3)))
+                                 r.MoveTo({Straight: false, Pose: {'A': 0, 'B': Math.PI / 2, 'C':-Math.PI + 0.1, 'X':300, 'Y':400, 'Z': 300}})
+                                 r.lin(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.5, 0.3)))
                                 r.SetEndEffectorParameters({setting: 1.0})
-                                await r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.3, 0.3)))
+                                 r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.3, 0.3)))
                                 r.SetEndEffectorParameters({setting: 0.0})
-                                await r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.4, 0.3)))
-                                */
+                                 r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.4, 0.3)))
+                                
                                 //await executeMultiRobotProgram(allrobots, TEST_CMDS)
-
+                                **/
                             
 
                             rendering = true;
@@ -219,7 +219,10 @@ function inputsProcessed(forceupdate = false) {
     const inputs = inputController.inputs
     const fastscale = 1 + (inputs.fast * 2) // inputs.fast: [0, 1] -> [1, 2]
     const slowscale = (1 - (Math.min(inputs.slow, 0.97))) // inputs.slow: [0, 1] -> [0, 1]
-
+    const tcp = new TransformNode("tcp", scene)
+    tcp.rotationQuaternion = eulerToQuaternion(new Vector3(0,0,0))
+    tcp.position = new Vector3(0.3, 0.3, 0.3)
+    
     const scale = scene.getAnimationRatio() * 0.01 * fastscale * slowscale
     let shift = Vector3.Zero()
     if (inputs.mode > 0.5) {
@@ -231,9 +234,11 @@ function inputsProcessed(forceupdate = false) {
     } else {
         shift = new Vector3(-inputs.xAxis, inputs.yAxis, inputs.zAxis).scale(scale * 0.3) // TODO rotate viewer pos
         if (shift.length() > 0 || forceupdate) {
-            //tcp.position = tcp.position.add(shift)
-           // allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
+            tcp.position = tcp.position.add(shift)
+            allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
+          
             rendering = true
+
         }
     }
     try {

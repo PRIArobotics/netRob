@@ -75,22 +75,8 @@ var inputController;
 const bgIntensity = 0.8
 
 
-export type SimulatorZoomAction = 'ZOOM_IN' | 'ZOOM_100' | 'ZOOM_OUT' | 'ZOOM_FIT';
+//export type SimulatorZoomAction = 'ZOOM_IN' | 'ZOOM_100' | 'ZOOM_OUT' | 'ZOOM_FIT';
 
-export type ControlledState = {|
-  zoom: number,
-    zoomMode: 'MANUAL' | 'FIT',
-|};
-
-type Props = {|
-  running: boolean,
-  ...ControlledState,
-  onUpdate: (state: ControlledState) => void | Promise < void>,
-    onExecutionAction: (action: ExecutionAction) => void | Promise < void>,
-|};
-type Instance = {|
-  simulation: Simulation,
-|};
 
 import "@babylonjs/core/Debug/debugLayer"; // Augments the scene with the debug methods
 import "@babylonjs/inspector";
@@ -153,7 +139,7 @@ var assetsManager;
  * Besides the simulation itself, the toolbar allows terminating programs and resetting the simulation.
  */
 import DefaultPlayground from "./DefaultPlayground";
-
+/** 
 function inputsProcessed(forceupdate = false) {
   const inputs = inputController.inputs
   const fastscale = 1 + (inputs.fast * 2) // inputs.fast: [0, 1] -> [1, 2]
@@ -165,7 +151,7 @@ function inputsProcessed(forceupdate = false) {
     shift = new Vector3(-inputs.yAxis, inputs.xAxis, inputs.zAxis).scale(scale)
     const shiftQuaternion = Quaternion.FromEulerVector(shift)
     tcp.rotationQuaternion = tcp.rotationQuaternion.multiply(shiftQuaternion)
-    allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
+   // allrobots.forEach(r => r.setTCPTo(tcp.position, tcp.rotationQuaternion))
     rendering = true
   } else {
     shift = new Vector3(-inputs.xAxis, inputs.yAxis, inputs.zAxis).scale(scale * 0.3) // TODO rotate viewer pos
@@ -188,12 +174,13 @@ function inputsProcessed(forceupdate = false) {
           coneMaterial.diffuseColor = Color3.Gray()
           console.log('Releasing')
           //robotInterface.send(CommandFactory.SetEndEffector('Releasing', 0.0))
-      } */
+      } 
     }
   } catch (e) {
     console.log(e.message)
   }
 }
+*/
 const robotData = [
   /** 
    {
@@ -213,9 +200,10 @@ const robotData = [
      }]
  
  },
+ **/
   {
     path: "robot/kuka_kr6_support/urdf/kr6r700sixx.urdfjson",
-    pos: new Vector3(1, 0, 0),
+    pos: new Vector3(0, 0, 0),
     rot: eulerToQuaternion(new Vector3(0, 0, 0)),
     chains: [{
       base: 'base_link',
@@ -235,7 +223,7 @@ const robotData = [
     }]
 
   },
-*/
+/** 
   {
     path: "robot/festo_description/urdf/excm40.urdfjson",
     pos: new Vector3(0, 0, 0),
@@ -258,11 +246,15 @@ const robotData = [
 
   },
 
+**/
   //{path: "robot/pr2_description/robots/", file: 'pr2.urdfjson', pos: new Vector3(0,0,0)},
 
 
 ]
-const Simulator = React.forwardRef < Props, Instance> (
+let allrobots = null
+var sceneCopy = null
+var Simulator = null
+ Simulator = React.forwardRef < Props, Instance> (
   ({ running, zoom, zoomMode, onUpdate, onExecutionAction }: Props, ref: Ref<Instance>) => {
     const simulation = hooks.useValue(() => {
       const sim = new Simulation();
@@ -273,7 +265,7 @@ const Simulator = React.forwardRef < Props, Instance> (
 
     const onSceneReady = (scene) => {
       // This creates and positions a free camera (non-mesh)
-
+      sceneCopy= scene;
       var camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
 
       // This targets the camera to scene origin
@@ -301,7 +293,6 @@ const Simulator = React.forwardRef < Props, Instance> (
 
       scene.render();
 
-      let allrobots = null
       loadRobots(robotData, scene, assetsManager).then(async (robots) => {
         allrobots = robots
 
@@ -312,13 +303,22 @@ const Simulator = React.forwardRef < Props, Instance> (
         scene.render()
 
 
-        //await r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.4, 0.3)))
+     //   await r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.4, 0.3)),scene)
 
 
        // r.speed = 0.2
-       // r.setTCPTo(new Vector3(0.3, 0.3, 0.3), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)))
-
-       // await executeMultiRobotProgram(allrobots, TEST_CMDS)
+       /**
+       await  r.setTCPTo(new Vector3(0.3, 0.3, 0.3), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)))
+      r.setTCPTo( new Vector3(0.3, 0.3, 0.3), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)))
+      await r.MoveTo({Straight: false, Pose: {'A': 0, 'B': Math.PI / 2, 'C':-Math.PI + 0.1, 'X':300, 'Y':400, 'Z': 300}},scene)
+      await r.lin(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.5, 0.3)),scene)
+      r.SetEndEffectorParameters({setting: 1.0})
+      await r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.3, 0.3)),scene)
+      r.SetEndEffectorParameters({setting: 0.0})
+      await r.ptp(Matrix.Compose(Vector3.One(), eulerToQuaternion(new Vector3(0, Math.PI / 2, -Math.PI + 0.1)), new Vector3(0.3, 0.4, 0.3)),scene)
+       */
+    
+       // await executeMultiRobotProgram(allrobots, TEST_CMDS,scene)
 
       })
     };
@@ -362,7 +362,9 @@ const Simulator = React.forwardRef < Props, Instance> (
             <ToolBarItem key="terminate-and-reset">
               <ToolBarIconButton
                 onClick={() => {
-                  onExecutionAction({ action: 'TERMINATE', reset: true });
+                  executeMultiRobotProgram(allrobots, TEST_CMDS,sceneCopy);
+                  console.log("Klick Button")
+
                 }}
                 icon={TerminateAndResetIcon}
                 color="red"
@@ -437,9 +439,11 @@ const Simulator = React.forwardRef < Props, Instance> (
             SetTCP
           </ToolBarItem>
           <ToolBarItem>
-            <ToolBarIconButton onClick={() => onUpdate({
+            <ToolBarIconButton onClick={() => {
+                  executeMultiRobotProgram(allrobots, TEST_CMDS,sceneCopy);
+                  console.log("Klick Button")
 
-            })} icon={RobotIndustrialIcon} disableRipple />
+                }}icon={RobotIndustrialIcon} disableRipple />
           </ToolBarItem>
 
 
